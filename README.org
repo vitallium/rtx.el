@@ -1,0 +1,12 @@
+#+TITLE: rtx integration for Emacs
+
+* Description
+
+Small and simple interface for [[https://github.com/jdxcode/rtx][=rtx=]].
+The provided interface is pretty much code&paste of [[https://github.com/tabfugnic/asdf.el][asdf.el]].
+
+* Usage
+
+#+begin_example emacs-lisp
+(add-hook 'prog-mode-hook 'rtx-setup-env)
+#+end_example
