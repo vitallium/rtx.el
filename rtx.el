@@ -41,6 +41,7 @@
   "rtx compilation"
   "Compilation output for rtx.")
 
+;;;###autoload
 (defun rtx-install (&optional name version)
   "Install tools.
 Run this command with no arguments and it will install all tools
@@ -58,16 +59,19 @@ VERSION."
      (cl-remove-if 'null `(,rtx-binary "install" ,name ,version)) " "))
    'rtx-compilation-mode))
 
+;;;###autoload
 (defun rtx-current ()
   "Get current versions being used in path."
   (interactive)
   (shell-command (rtx--command "current")))
 
+;;;###autoload
 (defun rtx-plugin-list()
   "Get currently installed plugin list."
   (interactive)
   (shell-command (rtx--command "plugin" "ls")))
 
+;;;###autoload
 (defun rtx-plugin-add(name &optional git-url)
   "Add a new plugin by NAME.
 Optionally supply a GIT-URL for git repository to a plugin."
@@ -117,12 +121,14 @@ Optionally supply a GIT-URL for git repository to a plugin."
   (rtx--format-output-to-list
    (shell-command-to-string (rtx--command "bin-paths"))))
 
+;;;###autoload
 (defun rtx-bin-path(binary)
   "Get a bin path for specific BINARY."
   (string-trim-right (shell-command-to-string (rtx--command "which" binary))))
 
+;;;###autoload
 (defun rtx-setup-env()
-  "Invoke rtx to configure environment: exec-path and PATH variable."
+  "Invoke rtx to configure environment: \"exec-path\" and PATH variable."
   (interactive)
   (setenv "PATH" (concat (string-join (rtx--bin-paths) ":") ":" (getenv "PATH")))
   (setq exec-path (nconc (rtx--bin-paths) exec-path)))
