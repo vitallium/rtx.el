@@ -1,12 +1,12 @@
-#+TITLE: rtx integration for Emacs
+#+TITLE: mise (ex. rtx) integration for Emacs
 
 * Description
 
-Small and simple interface for [[https://github.com/jdxcode/rtx][=rtx=]].
+Small and simple interface for [[https://github.com/jdxcode/mise][=mise=]].
 The provided interface is pretty much code&paste of [[https://github.com/tabfugnic/asdf.el][asdf.el]].
 
 * Usage
 
 #+begin_example emacs-lisp
-(add-hook 'prog-mode-hook 'rtx-setup-env)
+(add-hook 'prog-mode-hook 'mise-setup-env)
 #+end_example
